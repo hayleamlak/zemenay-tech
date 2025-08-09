@@ -1,18 +1,18 @@
 import React from "react";
 import "../styles/Footer.css";
 
-export default function Footer({ setCameraTarget, setCurrentPage }) {
+export default function Footer({ onNavigate, currentPage }) {
   const links = [
-    { label: "Home", target: [1000, 70, 120] },
-    { label: "About", target: [500, -5, -100] },
-    { label: "Services", target: [600, 150, -200] },
-    { label: "Pricing", target: [200, 300, -400] },
-    { label: "Contact", target: [0, 800, -100] },
+    { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
+    { label: "Services", path: "/services" },
+    { label: "Pricing", path: "/pricing" },
+    { label: "Contact", path: "/contact" },
   ];
 
   const legalLinks = [
-    { label: "Privacy Policy", target: [0, 0, 0] }, // set target as needed
-    { label: "Terms of Service", target: [0, 0, 0] }, // set target as needed
+    { label: "Privacy Policy", path: "/privacy" }, // update route as needed
+    { label: "Terms of Service", path: "/terms" }, // update route as needed
   ];
 
   return (
@@ -26,13 +26,11 @@ export default function Footer({ setCameraTarget, setCurrentPage }) {
       <div className="footer-column">
         <h4>Quick Links</h4>
         <nav>
-          {links.map(({ label, target }) => (
+          {links.map(({ label, path }) => (
             <button
               key={label}
-              onClick={() => {
-                setCameraTarget(target);
-                setCurrentPage(label);
-              }}
+              className={currentPage === label ? "active" : ""}
+              onClick={() => onNavigate(path)}
             >
               {label}
             </button>
@@ -40,17 +38,15 @@ export default function Footer({ setCameraTarget, setCurrentPage }) {
         </nav>
       </div>
 
-      {/* Legal */}
+      {/* Legal Links */}
       <div className="footer-column">
         <h4>Legal</h4>
         <nav>
-          {legalLinks.map(({ label, target }) => (
+          {legalLinks.map(({ label, path }) => (
             <button
               key={label}
-              onClick={() => {
-                setCameraTarget(target);
-                setCurrentPage(label);
-              }}
+              className={currentPage === label ? "active" : ""}
+              onClick={() => onNavigate(path)}
             >
               {label}
             </button>
@@ -58,7 +54,7 @@ export default function Footer({ setCameraTarget, setCurrentPage }) {
         </nav>
       </div>
 
-      {/* Connect */}
+      {/* Connect Links */}
       <div className="footer-column">
         <h4>Connect</h4>
         <nav>

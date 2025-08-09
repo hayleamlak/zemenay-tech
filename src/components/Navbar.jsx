@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import '../styles/navbar.css';
 
-export default function Navbar({ setCameraTarget, setCurrentPage }) {
+export default function Navbar({ onNavigate, currentPage }) {
   const pendulumRefs = useRef([]);
 
   useEffect(() => {
@@ -21,11 +21,11 @@ export default function Navbar({ setCameraTarget, setCurrentPage }) {
   }, []);
 
   const buttons = [
-    { label: 'Home', target: [1000, 70, 120] },
-    { label: 'About', target: [500, -5, -100] },
-    { label: 'Services', target: [600, 150, -200] },
-    { label: 'Pricing', target: [200, 300, -400] },
-    { label: 'Contact', target: [0, 800, -100] },
+    { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
+    { label: 'Services', path: '/services' },
+    { label: 'Pricing', path: '/pricing' },
+    { label: 'Contact', path: '/contact' },
   ];
 
   return (
@@ -34,18 +34,19 @@ export default function Navbar({ setCameraTarget, setCurrentPage }) {
         {buttons.map((btn, i) => (
           <li
             key={btn.label}
-            className="pendulum-container"
+            className={`pendulum-container ${currentPage === btn.label ? 'active' : ''}`}
             ref={el => (pendulumRefs.current[i] = el)}
           >
             <div className="rope" />
-            <button
-              onClick={() => {
-                setCameraTarget(btn.target);
-                setCurrentPage(btn.label);
+            <a
+              href="#!"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate(btn.path);
               }}
             >
               {btn.label}
-            </button>
+            </a>
           </li>
         ))}
       </ul>

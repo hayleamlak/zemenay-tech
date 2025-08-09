@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Environment } from '@react-three/drei';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import ModelViewer from './components/ModelViewer';
@@ -19,14 +20,39 @@ import './styles/main.css';
 import './styles/pages.css';
 import './styles/navbar.css';
 
-function App() {
-  const [cameraTarget, setCameraTarget] = useState([1000, 70, 120]);
-  const [currentPage, setCurrentPage] = useState('Home');
+// Map routes to camera targets and labels
+const pageData = {
+  '/': { target: [1000, 70, 120], label: 'Home' },
+  '/about': { target: [500, -5, -100], label: 'About' },
+  '/services': { target: [600, 150, -200], label: 'Services' },
+  '/pricing': { target: [200, 300, -400], label: 'Pricing' },
+  '/contact': { target: [0, 800, -100], label: 'Contact' },
+};
+
+function AppContent() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Update camera target & currentPage based on URL path
+  const [cameraTarget, setCameraTarget] = useState(pageData[location.pathname]?.target || pageData['/'].target);
+  const [currentPage, setCurrentPage] = useState(pageData[location.pathname]?.label || 'Home');
   const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const data = pageData[location.pathname] || pageData['/'];
+    setCameraTarget(data.target);
+    setCurrentPage(data.label);
+  }, [location]);
+
+  // Handler to navigate and update URL & camera target
+  const handleNavigate = (path) => {
+    navigate(path);
+    // cameraTarget and currentPage update will happen via useEffect on location change
+  };
 
   return (
     <>
-      <Navbar setCameraTarget={setCameraTarget} setCurrentPage={setCurrentPage} />
+      <Navbar onNavigate={handleNavigate} currentPage={currentPage} />
 
       <Canvas
         camera={{ position: cameraTarget, fov: 60 }}
@@ -47,20 +73,25 @@ function App() {
         <CameraController target={cameraTarget} scrollProgress={scrollProgress} />
       </Canvas>
 
-      {/* ScrollController handles scrolling and passes progress up */}
       <ScrollController onScrollProgress={setScrollProgress}>
-        {currentPage === 'Home' && <HomePage />}
-        {currentPage === 'About' && <AboutPage />}
-        {currentPage === 'Services' && <ServicesPage />}
-        {currentPage === 'Pricing' && <PricingPage />}
-        {currentPage === 'Contact' && <ContactPage />}
-      <Footer setCameraTarget={setCameraTarget} setCurrentPage={setCurrentPage} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
 
+        <Footer onNavigate={handleNavigate} currentPage={currentPage} />
       </ScrollController>
-
-     
     </>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
+}
