@@ -1,0 +1,62 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 150px;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  pointer-events: none;
+  z-index: 1005;
+}
+
+.nav-list {
+  display: flex;
+  gap: 4rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  pointer-events: auto;
+}
+
+.pendulum-container {
+  position: relative;
+  transform-origin: top center;
+  margin-top: 10px; /* Push buttons down so ropes appear at top */
+}
+
+.rope {
+  position: absolute;
+  top: -100px; /* Negative margin equal to buttons push down */
+  left: 50%;
+  width: 1px;
+  height: 100px;
+  background-color: black;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.pendulum-container button {
+
+
+
+  background: rgba(255, 255, 255, 0.231);
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  font-weight: 600;
+  cursor: pointer;
+  pointer-events: auto;
+  user-select: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.pendulum-container button:hover {
+  background: #130505;
+  transform: scale(1.05);
+  color: white;
+
+}

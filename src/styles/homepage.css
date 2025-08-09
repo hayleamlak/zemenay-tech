@@ -1,0 +1,224 @@
+/* Container */
+.homepage-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 5vh auto 5vh auto;
+  padding: 0 20px;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+  overflow-y: auto;
+}
+
+/* Section Titles */
+h1, h2, h3 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 3rem 1rem;
+  max-width: 700px;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+.hero-section p {
+  font-size: 1.3rem;
+  margin: 1.5rem 0 2.5rem 0;
+  line-height: 1.5;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+}
+
+.primary-btn {
+  padding: 0.9rem 2.2rem;
+  font-size: 1.2rem;
+  border: 2px solid #00bfff;
+  background: transparent;
+  color: #00bfff;
+  border-radius: 35px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #00bfff80;
+  user-select: none;
+}
+
+.primary-btn:hover {
+  background-color: #00bfff;
+  color: #fff;
+  box-shadow: 0 0 20px #00bfff;
+  transform: scale(1.05);
+}
+
+/* Why Zemenay Section */
+.why-zemenay {
+  padding: 3rem 1rem;
+  max-width: 900px;
+}
+
+.why-zemenay p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+/* Services Cards Grid */
+.services-cards {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 12px;
+  padding: 1.8rem 1.5rem;
+  flex: 1 1 280px;
+  box-shadow: 0 0 15px rgba(0,191,255,0.3);
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+.card:hover {
+  background: rgba(0, 191, 255, 0.25);
+  box-shadow: 0 0 25px #00bfffcc;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+.card button {
+  padding: 0.6rem 1.5rem;
+  background: #00bfff;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+.card button:hover {
+  background: #0099dd;
+}
+
+/* Clients Section */
+.clients {
+  padding: 3rem 1rem;
+  max-width: 1000px;
+  text-align: center;
+}
+
+.clients h2 {
+  margin-bottom: 2rem;
+}
+
+.client-logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+  gap: 2rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.client-logos img {
+  max-width: 80px;
+  filter: brightness(0.8);
+  transition: filter 0.3s ease;
+}
+
+.client-logos img:hover {
+  filter: brightness(1);
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: 3rem 1rem;
+  max-width: 900px;
+}
+
+.testimonials h2 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.testimonials blockquote {
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 4px solid #00bfff;
+  margin: 1.5rem auto;
+  padding: 1rem 1.5rem;
+  font-style: italic;
+  box-shadow: 0 0 10px rgba(0,191,255,0.3);
+  max-width: 700px;
+  user-select: none;
+}
+
+.testimonials blockquote p {
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.testimonials blockquote footer {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: right;
+  color: #a0dfff;
+}
+
+/* Footer */
+.footer {
+  margin-top: 4rem;
+  padding: 2rem 1rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+  user-select: none;
+}
+
+.footer img {
+  width: 120px;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 4px rgba(0,191,255,0.5));
+}
+
+.footer nav a {
+  margin: 0 1rem;
+  color: #00bfff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.footer nav a:hover {
+  color: #0099dd;
+  text-decoration: underline;
+}
+
+.footer .legal, 
+.footer .contact {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer p {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
