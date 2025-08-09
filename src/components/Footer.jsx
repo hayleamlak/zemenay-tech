@@ -1,45 +1,76 @@
-import React from 'react';
-import '../styles/Footer.css'; 
+import React from "react";
+import "../styles/Footer.css";
 
-export default function Footer() {
+export default function Footer({ setCameraTarget, setCurrentPage }) {
+  const links = [
+    { label: "Home", target: [1000, 70, 120] },
+    { label: "About", target: [500, -5, -100] },
+    { label: "Services", target: [600, 150, -200] },
+    { label: "Pricing", target: [200, 300, -400] },
+    { label: "Contact", target: [0, 800, -100] },
+  ];
+
+  const legalLinks = [
+    { label: "Privacy Policy", target: [0, 0, 0] }, // set target as needed
+    { label: "Terms of Service", target: [0, 0, 0] }, // set target as needed
+  ];
+
   return (
     <footer className="footer-container">
-         <div className="footer-column footer-logo-column">
+      {/* Logo Column */}
+      <div className="footer-column footer-logo-column">
         <img src="/Zemenay Main.png" alt="Zemenay Logo" />
       </div>
-      {/* Column 1: Quick Links */}
+
+      {/* Quick Links */}
       <div className="footer-column">
         <h4>Quick Links</h4>
-        <nav>  
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#contact">Contact Us</a>
+        <nav>
+          {links.map(({ label, target }) => (
+            <button
+              key={label}
+              onClick={() => {
+                setCameraTarget(target);
+                setCurrentPage(label);
+              }}
+            >
+              {label}
+            </button>
+          ))}
         </nav>
       </div>
 
-      {/* Column 2: Legal */}
+      {/* Legal */}
       <div className="footer-column">
         <h4>Legal</h4>
         <nav>
-          <a href="#privacy">Privacy Policy</a>
-          <a href="#terms">Terms of Service</a>
+          {legalLinks.map(({ label, target }) => (
+            <button
+              key={label}
+              onClick={() => {
+                setCameraTarget(target);
+                setCurrentPage(label);
+              }}
+            >
+              {label}
+            </button>
+          ))}
         </nav>
       </div>
 
-      {/* Column 3: Connect */}
+      {/* Connect */}
       <div className="footer-column">
         <h4>Connect</h4>
         <nav>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer">
+            Instagram
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
           <a href="mailto:zemenaytechsolutions@gmail.com">Email</a>
         </nav>
       </div>
-
-      {/* Column 4: Logo */}
-     
     </footer>
   );
 }

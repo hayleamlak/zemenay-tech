@@ -54,7 +54,8 @@ function App() {
         {currentPage === 'Services' && <ServicesPage />}
         {currentPage === 'Pricing' && <PricingPage />}
         {currentPage === 'Contact' && <ContactPage />}
-         <Footer />
+      <Footer setCameraTarget={setCameraTarget} setCurrentPage={setCurrentPage} />
+
       </ScrollController>
 
      

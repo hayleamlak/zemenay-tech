@@ -21,7 +21,7 @@
   border-radius: 0px 400px 0px 400px;
 }
 
-/* Footer link colors */
+/* Footer link colors for <a> */
 .footer-container a {
   color: #ffffff;
   text-decoration: none;
@@ -32,19 +32,37 @@
   text-decoration: underline;
 }
 
+/* Style buttons like links */
+.footer-container nav button {
+  all: unset; /* reset all button styles */
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  font-family: inherit;
+  transition: text-decoration 0.2s ease, color 0.2s ease;
+}
+
+.footer-container nav button:hover {
+  text-decoration: underline;
+  color: #cce1ff; /* lighter blue on hover for example */
+}
+
 /* Logo column */
 .footer-logo-column {
   flex: 1 1 0;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  min-width: 150px;
+ 
 }
 
 .footer-logo-column img {
-  max-width: 200px;
+  max-width: 250px;
   height: auto;
   user-select: none;
+  padding:50px;
 }
 
 /* Other columns share remaining space equally */
