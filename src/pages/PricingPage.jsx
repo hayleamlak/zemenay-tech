@@ -48,14 +48,15 @@ const plans = [
 export default function PricingPage() {
   return (
     <div className="pricing-container">
+      {/* Pricing Header */}
       <header className="pricing-header">
         <h1>Simple, Transparent Pricing</h1>
         <p>
-          Choose the perfect plan for your needs. From free community options
-          to enterprise solutions, we've got you covered.
+          Choose the perfect plan for your needs. From free community options to enterprise solutions, we've got you covered.
         </p>
       </header>
 
+      {/* Pricing Cards */}
       <section className="plans-grid">
         {plans.map(({ name, subtitle, price, features, buttonLabel, popular }, i) => (
           <div
@@ -74,6 +75,53 @@ export default function PricingPage() {
             <button className="btn-primary">{buttonLabel}</button>
           </div>
         ))}
+      </section>
+
+      {/* Feature Comparison Table */}
+      <section className="pricing-table-section">
+        <h2>Compare Plans</h2>
+        <table className="pricing-table">
+          <thead>
+            <tr>
+              <th>Features</th>
+              <th>Community</th>
+              <th>WordPress Solution</th>
+              <th>Enterprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Website Template</td>
+              <td>Basic</td>
+              <td>Custom</td>
+              <td>Custom</td>
+            </tr>
+            <tr>
+              <td>Support</td>
+              <td>Community</td>
+              <td>Priority</td>
+              <td>Dedicated</td>
+            </tr>
+            <tr>
+              <td>SEO Optimization</td>
+              <td>-</td>
+              <td>✔</td>
+              <td>✔</td>
+            </tr>
+            <tr>
+              <td>Custom Integrations</td>
+              <td>-</td>
+              <td>Limited</td>
+              <td>✔</td>
+            </tr>
+            <tr>
+              <td>Scalable Infrastructure</td>
+              <td>-</td>
+              <td>-</td>
+              <td>✔</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
     </div>
   );
