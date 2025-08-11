@@ -1,0 +1,191 @@
+:root {
+  --bg-color: rgba(18, 18, 31, 0.85);
+  --text-color: #eee;
+  --text-muted: #a0bde6;
+  --highlight-color: #00bfff;
+  --highlight-glow: #00bfffcc;
+  --card-bg: rgba(0, 0, 0, 0.55);
+  --card-shadow: rgba(0, 191, 255, 0.15);
+  --card-shadow-hover: rgba(0, 191, 255, 0.35);
+  --button-bg: #00bfff88;
+  --button-hover-bg: #00bfff;
+  --button-text-color: #001f33;
+}
+
+/* Container */
+.contact-container {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1rem 5rem;
+}
+
+/* Header */
+.contact-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact-header h1 {
+  font-size: 3rem;
+  color: var(--highlight-color);
+  text-shadow: 0 0 15px var(--highlight-glow);
+  margin-bottom: 0.5rem;
+}
+
+.contact-header p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Main layout */
+.contact-main {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Glass card style */
+.glass-card {
+  background: var(--card-bg);
+  box-shadow: 0 8px 32px var(--card-shadow);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  color: var(--text-color);
+  transition: box-shadow 0.3s ease;
+  flex: 1;
+  max-width: 480px;
+}
+
+.glass-card:hover {
+  box-shadow: 0 12px 48px var(--card-shadow-hover);
+}
+
+/* Contact Form */
+.contact-form h2 {
+  margin-bottom: 1.5rem;
+  color: var(--highlight-color);
+  text-shadow: 0 0 12px var(--highlight-glow);
+}
+
+.form-row {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row label {
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.form-row input,
+.form-row textarea {
+  background: rgba(255 255 255 / 0.1);
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  resize: vertical;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: none;
+  background: rgba(0, 191, 255, 0.15);
+  box-shadow: 0 0 12px var(--highlight-glow);
+}
+
+/* Submit Button */
+.btn-primary {
+  background: var(--button-bg);
+  border: none;
+  padding: 0.75rem 2.5rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 35px;
+  cursor: pointer;
+  color: var(--button-text-color);
+  box-shadow: 0 0 15px var(--highlight-glow);
+  transition: all 0.3s ease;
+  user-select: none;
+  align-self: center;
+  width: 100%;
+  max-width: 260px;
+}
+
+.btn-primary:hover {
+  background: var(--button-hover-bg);
+  color: white;
+  box-shadow: 0 0 25px var(--highlight-glow);
+  transform: scale(1.05);
+}
+
+/* Contact Info */
+.contact-info h2 {
+  margin-bottom: 1.5rem;
+  color: var(--highlight-color);
+  text-shadow: 0 0 15px var(--highlight-glow);
+}
+
+.contact-info h3 {
+  margin-top: 1rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.contact-info p {
+  margin: 0.3rem 0 0.8rem;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--text-color);
+}
+
+/* Map container */
+.contact-map {
+  margin-top: 2rem;
+}
+
+.contact-map h3 {
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+/* Make iframe responsive */
+.contact-map iframe {
+  width: 100%;
+  max-width: 100%;
+  height: 250px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px var(--card-shadow);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .contact-main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .glass-card {
+    max-width: 100%;
+  }
+
+  .contact-map iframe {
+    height: 300px;
+  }
+}

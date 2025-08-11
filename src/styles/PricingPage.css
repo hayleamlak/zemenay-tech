@@ -1,0 +1,168 @@
+:root {
+  --bg-color: rgba(18, 18, 31, 0.85);
+  --text-color: #eee;
+  --text-muted: #a0bde6;
+  --highlight-color: #00bfff;
+  --highlight-glow: #00bfffcc;
+  --card-bg: rgba(0, 0, 0, 0.55);
+  --card-shadow: rgba(0, 191, 255, 0.15);
+  --card-shadow-hover: rgba(0, 191, 255, 0.35);
+  --button-bg: #00bfff88;
+  --button-hover-bg: #00bfff;
+  --button-text-color: #001f33;
+}
+
+/* Container */
+.pricing-container {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  padding: 4rem 1rem 6rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Header */
+.pricing-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.pricing-header h1 {
+  font-size: 3rem;
+  color: var(--highlight-color);
+  text-shadow: 0 0 15px var(--highlight-glow);
+  margin-bottom: 0.5rem;
+}
+
+.pricing-header p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Plans Grid */
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+/* Responsive grid */
+@media (max-width: 900px) {
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .plans-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Individual Plan Card */
+.plan-card {
+  background: var(--card-bg);
+  box-shadow: 0 8px 32px var(--card-shadow);
+  border-radius: 20px;
+  padding: 2.5rem 2rem 3rem;
+  text-align: center;
+  color: var(--text-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.plan-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 48px var(--card-shadow-hover);
+}
+
+/* Popular Plan Highlight */
+.popular-plan {
+  border: 2px solid var(--highlight-color);
+  box-shadow: 0 0 20px var(--highlight-glow);
+}
+
+.badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--highlight-color);
+  color: #001f33;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  box-shadow: 0 0 15px var(--highlight-glow);
+}
+
+/* Plan Titles */
+.plan-card h2 {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+  color: var(--highlight-color);
+  text-shadow: 0 0 12px var(--highlight-glow);
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 1.3rem;
+}
+
+/* Price */
+.price {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* Features List */
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2.5rem;
+  color: var(--text-color);
+}
+
+.features-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255 255 255 / 0.1);
+  font-size: 1.05rem;
+}
+
+/* Button */
+.btn-primary {
+  background: var(--button-bg);
+  border: none;
+  padding: 0.75rem 2.2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 35px;
+  cursor: pointer;
+  color: var(--button-text-color);
+  box-shadow: 0 0 10px var(--highlight-glow);
+  transition: all 0.3s ease;
+  user-select: none;
+  align-self: center;
+  width: 90%;
+  max-width: 240px;
+}
+
+.btn-primary:hover {
+  background: var(--button-hover-bg);
+  color: white;
+  box-shadow: 0 0 20px var(--highlight-glow);
+  transform: scale(1.05);
+}

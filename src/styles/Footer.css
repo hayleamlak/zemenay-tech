@@ -1,96 +1,100 @@
+:root {
+  --footer-bg: rgba(50, 50, 112, 0.9);
+  --footer-text: #cce7ff;
+  --footer-text-muted: #7ea9c7;
+  --footer-highlight: #00bfff;
+  --footer-highlight-glow: #00bfffcc;
+  --footer-shadow: rgba(0, 191, 255, 0.2);
+  --footer-link-hover: #66c2ff;
+}
+
+/* Footer container */
 .footer-container {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   padding: 2rem 4rem;
-  box-sizing: border-box;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 100vw;
-  max-width: 100vw;
-  margin: 0;
-  color: rgb(20, 14, 14);
-  font-size: 25px;
-
-  /* Transparent black overlay + background image */
-  background: rgba(25, 24, 245, 0.9) url('/pattern.png') center/cover no-repeat;
-  background-blend-mode: overlay; /* blends image with rgba background */
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 0px 400px 0px 400px;
-}
-
-/* Footer link colors for <a> */
-.footer-container a {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 20px;
-}
-
-.footer-container a:hover {
-  text-decoration: underline;
-}
-
-/* Style buttons like links */
-.footer-container nav button {
-  all: unset; /* reset all button styles */
-  color: #ffffff;
-  font-size: 20px;
-  cursor: pointer;
-  text-align: left;
-  padding: 0;
-  font-family: inherit;
-  transition: text-decoration 0.2s ease, color 0.2s ease;
-}
-
-.footer-container nav button:hover {
-  text-decoration: underline;
-  color: #cce1ff; /* lighter blue on hover for example */
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 0px 0px 0px 0px;
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  box-shadow: 0 0 40px var(--footer-shadow);
+  user-select: none;
+  margin-top: 60px;
 }
 
 /* Logo column */
 .footer-logo-column {
-  flex: 1 1 0;
+  flex: 1 1 280px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
- 
 }
 
 .footer-logo-column img {
-  max-width: 250px;
+  max-width: 220px;
   height: auto;
+  padding: 0 1rem 0 0;
+  filter: drop-shadow(0 0 5px var(--footer-highlight-glow));
   user-select: none;
-  padding:50px;
 }
 
-/* Other columns share remaining space equally */
-.footer-column:not(.footer-logo-column) {
-  flex: 1 1 0;
-  min-width: 200px;
+/* Other columns */
+.footer-column {
+  flex: 1 1 200px;
   display: flex;
   flex-direction: column;
 }
 
 .footer-column h4 {
+  font-weight: 700;
+  font-size: 1.3rem;
   margin-bottom: 1rem;
+  color: var(--footer-highlight);
+  text-shadow: 0 0 10px var(--footer-highlight-glow);
+  user-select: none;
 }
 
+/* Navigation in columns */
 .footer-column nav {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
-/* Tablet breakpoint */
+/* Buttons and links */
+.footer-column nav button,
+.footer-column nav a {
+  all: unset;
+  cursor: pointer;
+  color: var(--footer-text);
+  font-size: 1rem;
+  text-align: left;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+  user-select: text;
+}
+
+.footer-column nav button:hover,
+.footer-column nav a:hover {
+  color: var(--footer-link-hover);
+  text-decoration: underline;
+}
+
+.footer-column nav button.active {
+  font-weight: 700;
+  color: var(--footer-highlight);
+}
+
+/* Responsive breakpoints */
 @media (max-width: 974px) {
   .footer-container {
     padding: 2rem 2rem;
-    border-radius: 0px 400px 0px 40px;
+    border-radius: 0 400px 0 40px;
   }
 
-  .footer-column:not(.footer-logo-column) {
+  .footer-column {
     flex: 1 1 45%;
   }
 
@@ -99,20 +103,19 @@
   }
 }
 
-/* Mobile breakpoint */
 @media (max-width: 600px) {
   .footer-container {
     flex-direction: column;
     padding: 2rem 1.5rem;
-    border-radius: 100px 400px 0px 0px;
+    border-radius: 100px 400px 0 0;
   }
 
   .footer-logo-column {
     margin-bottom: 1.5rem;
-    flex: 0 0 auto;
+    justify-content: center;
   }
 
-  .footer-column:not(.footer-logo-column) {
+  .footer-column {
     flex: 1 1 100%;
     min-width: auto;
   }
