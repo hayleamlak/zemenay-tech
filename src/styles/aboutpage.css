@@ -1,8 +1,8 @@
 /* Reset and base */
 .about-container {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: rgba(18, 18, 31, 0.75); /* transparent dark bg */
-  color: #eee;
+  background: transparent; /* fully transparent page background */
+  color: #0f172a; /* readable on light page bg */
   min-height: 100vh;
   padding-bottom: 4rem;
   overflow-x: hidden;
@@ -10,19 +10,19 @@
 
 /* Glassmorphism cards */
 .glass-card {
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(12px);
+  background: var(--glass-bg, rgba(0, 31, 51, 0.28));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.18));
   border-radius: 16px;
-  box-shadow:
-    0 8px 32px rgba(0, 191, 255, 0.15);
-  color: #cce7ff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 191, 255, 0.18);
+  color: #ffffff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   user-select: none;
 }
 .glass-card:hover {
-  transform: translateY(-5px);
-  box-shadow:
-    0 12px 40px rgba(0, 191, 255, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(0, 191, 255, 0.35);
 }
 
 /* Sticky Navbar */
@@ -93,16 +93,16 @@
 .about-hero h1 {
   font-size: 3rem;
   font-weight: 700;
-  color: #00bfff;
+  color: #0f172a; /* dark color for "About Our Journey" */
   text-shadow: 0 0 12px #00bfffaa;
   margin-bottom: 1rem;
 }
 .about-hero p {
-  font-size: 1.2rem;
+  font-size: 1.35rem; /* increased for better prominence */
   max-width: 600px;
   margin: 0 auto 2rem;
-  color: #cce7ff;
-  line-height: 1.5;
+  color: #ffffff; /* white color for message */
+  line-height: 1.6;
 }
 .hero-buttons {
   display: flex;
@@ -133,26 +133,28 @@
 .about-mission {
   display: flex;
   gap: 2rem;
-  max-width: 1000px;
-  margin: 3rem auto 4rem;
+  width: 100%; /* full screen width on desktop */
+  margin: 3rem 0 4rem;
   align-items: center;
-  flex-wrap: wrap;
-  padding: 0 1rem;
+  flex-wrap: nowrap;
+  padding: 5rem 3vw;
+  box-sizing: border-box;
 }
 .mission-content {
-  flex: 1;
-  color: #cce7ff;
+  flex: 1 1 50%;
+  color: #0f172a;
 }
 .mission-content h2 {
   font-weight: 700;
   margin-bottom: 1rem;
   font-size: 2rem;
-  text-shadow: 0 0 10px #00bfffcc;
+  text-shadow: 0 0 10px #000000cc;
 }
 .mission-content p {
   font-size: 1.1rem;
-  line-height: 1.5;
+  line-height: 1.6;
   margin-bottom: 1.5rem;
+  color: #f8f8f8;
 }
 .read-more-btn {
   background: #00bfffcc;
@@ -172,9 +174,12 @@
   box-shadow: 0 0 20px #00a4dbee;
 }
 .mission-image {
-  flex: 1;
-  max-width: 400px;
+  flex: 1 1 50%;
+  width: 100%;
+  max-width: none;
   filter: drop-shadow(0 4px 8px rgba(0, 191, 255, 0.4));
+  display: flex;
+  justify-content: center;
 }
 .blob-frame {
   border-radius: 50% 20% / 60% 30%;
@@ -190,7 +195,8 @@
   width: 100%;
   display: block;
   object-fit: cover;
-  height: 100%;
+  height: auto;
+  max-width: 700px; /* prevent overly huge image on ultrawide */
 }
 
 /* Values Section */
@@ -201,19 +207,19 @@
   text-align: center;
 }
 .about-values h2 {
-  color: #00bfff;
+  color: #000000;
   font-size: 2.5rem;
   margin-bottom: 2rem;
   text-shadow: 0 0 12px #00bfffaa;
 }
 .values-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3-column layout for large screens */
   gap: 2rem;
-  flex-wrap: wrap;
   justify-content: center;
 }
 .value-card {
-  width: 300px;
+  width: 100%;
   padding: 2rem 1.5rem;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 191, 255, 0.15);
@@ -227,8 +233,8 @@
 .value-card p {
   font-size: 1rem;
   margin-bottom: 1.5rem;
-  color: #cce7ffdd;
-  line-height: 1.4;
+  color: #eff2f7;
+  line-height: 1.6;
 }
 
 /* Team Section */
@@ -239,28 +245,27 @@
   text-align: center;
 }
 .about-team h2 {
-  color: #00bfff;
+  color: #ebf1f4;
   font-size: 2.5rem;
   margin-bottom: 3rem;
-  text-shadow: 0 0 14px #00bfffcc;
+  text-shadow: 0 0 14px #06c1ffcc;
 }
 .team-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3-column layout for large screens */
   gap: 2.5rem;
   justify-content: center;
-  flex-wrap: wrap;
 }
 .team-card {
-  width: 250px;
+  width: 100%;
   padding: 2rem 1.5rem;
   border-radius: 20px;
   cursor: default;
   user-select: none;
   box-shadow:
     0 8px 30px rgba(0, 191, 255, 0.15);
-  background: rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: #cce7ff;
+  color: #ffffff; /* white text on team cards */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -268,7 +273,7 @@
 .team-card:hover {
   transform: scale(1.05);
   box-shadow:
-    0 12px 45px rgba(0, 191, 255, 0.35);
+    0 12px 45px rgba(15, 142, 184, 0.35);
 }
 .team-card h3 {
   margin-top: 1rem;
@@ -277,31 +282,32 @@
 .team-card .role {
   font-style: italic;
   margin: 0.5rem 0;
-  color: #a0d8ff;
+  color: #dbeafe;
 }
 .team-card .desc {
   font-size: 0.9rem;
   margin-bottom: 1rem;
-  color: #b0d8ff;
+  color: #e2e8f0;
   text-align: center;
 }
 .team-card ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  color: #99cfff;
+  color: #f1f5f9;
   font-size: 0.9rem;
   display: flex;
   gap: 0.75rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* keep chips side by side */
+  overflow-x: auto;
   justify-content: center;
 }
 .team-card ul li {
-  background: #00bfff88;
+  background: rgba(0, 191, 255, 0.25);
   padding: 0.3rem 0.9rem;
   border-radius: 30px;
   font-weight: 600;
-  text-shadow: 0 0 4px #0077aaaa;
+  color: #f6f6f6;
 }
 
 /* Blob shape for team images */
@@ -384,29 +390,42 @@
   .about-mission {
     flex-direction: column;
     text-align: center;
+    width: 100%;
+    margin: 2rem 0 3rem;
+    padding: 1rem 4vw;
   }
   .mission-image {
     max-width: 100%;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
   .values-grid {
-    flex-direction: column;
+    grid-template-columns: 1fr; /* single column on tablet */
     align-items: center;
   }
   .team-grid {
-    flex-direction: column;
+    grid-template-columns: 1fr; /* single column on tablet */
     align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0 4vw;
   }
 }
 @media (max-width: 480px) {
+  /* Make all cards take full width on mobile */
+  .value-card,
+  .team-card,
+  .about-mission {
+    width: 100%;
+  }
+  .team-card { max-width: none; }
   .about-hero h1 {
     font-size: 2rem;
   }
   .hero-buttons {
-    flex-direction: column;
+    flex-wrap: wrap; /* keep side by side if space, wrap if needed */
     gap: 0.8rem;
   }
   .hero-buttons button {
-    width: 100%;
+    width: auto;
   }
 }

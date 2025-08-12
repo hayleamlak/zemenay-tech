@@ -1,11 +1,11 @@
 :root {
   /* Light mode colors */
-  --bg-color-light: rgba(34, 34, 48, 0.75);
+  --bg-color-light: rgba(255, 255, 255, 0.08); /* more transparent */
   --highlight-color-light: #00bfff;
   --text-color-light: #ffffff;
 
   /* Dark mode colors */
-  --bg-color-dark: rgba(18, 18, 31, 0.75);
+  --bg-color-dark: rgba(0, 0, 0, 0.12); /* more transparent */
   --highlight-color-dark: #00ffff;
   --text-color-dark: #cce7ff;
 }
@@ -27,7 +27,7 @@
 .navbar {
   background: var(--bg-color);
   padding: 0.5rem 1rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   position: sticky;
@@ -162,7 +162,7 @@
 
 /* Nav button smaller for desktop */
 .nav-button {
-  background: rgba(255 255 255 / 0.12);
+  background: rgba(0, 0, 0, 0.6);
   color: var(--text-color);
   font-size: 1rem;
   font-weight: 700;
@@ -207,15 +207,16 @@
     position: fixed;
     top: 60px;
     right: 0;
-    background: var(--bg-color);
+    background: transparent; /* fully transparent sidebar */
+    backdrop-filter: none;
     flex-direction: column;
-    width: 200px;
+    width: 240px;
     height: calc(100vh - 60px);
-    padding: 2rem 1rem;
-    gap: 2rem;
+    padding: 1rem 1rem;
+    gap: 1.2rem;
     transform: translateX(100%);
     transition: transform 0.3s ease;
-    box-shadow: -4px 0 10px rgba(0,0,0,0.3);
+    box-shadow: none;
     z-index: 998;
   }
 
@@ -235,5 +236,13 @@
     min-width: auto;
     max-width: none;
     border-radius: 20px;
+  }
+
+  /* place theme toggle inside the sidebar on small devices */
+  .theme-toggle {
+    position: fixed;
+    top: 70px;
+    right: 16px;
+    z-index: 999;
   }
 }

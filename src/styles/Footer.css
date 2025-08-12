@@ -1,11 +1,11 @@
 :root {
-  --footer-bg: rgba(50, 50, 112, 0.9);
-  --footer-text: #cce7ff;
-  --footer-text-muted: #7ea9c7;
+  --footer-bg: rgba(0, 31, 51, 0.28);
+  --footer-text: #000000; /* dark black text */
+  --footer-text-muted: #4b5563;
   --footer-highlight: #00bfff;
   --footer-highlight-glow: #00bfffcc;
-  --footer-shadow: rgba(0, 191, 255, 0.2);
-  --footer-link-hover: #66c2ff;
+  --footer-shadow: rgba(0, 191, 255, 0.18);
+  --footer-link-hover: #111827;
 }
 
 /* Footer container */
@@ -18,9 +18,10 @@
   color: var(--footer-text);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   border-radius: 0px 0px 0px 0px;
-  backdrop-filter: saturate(180%) blur(12px);
-  -webkit-backdrop-filter: saturate(180%) blur(12px);
-  box-shadow: 0 0 40px var(--footer-shadow);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 24px var(--footer-shadow);
   user-select: none;
   margin-top: 60px;
 }
@@ -69,7 +70,7 @@
 .footer-column nav a {
   all: unset;
   cursor: pointer;
-  color: var(--footer-text);
+  color: var(--footer-text); /* black */
   font-size: 1rem;
   text-align: left;
   transition: color 0.3s ease, text-decoration 0.3s ease;

@@ -1,10 +1,11 @@
 :root {
-  --blue: #00bfff;
+  --blue: #072630; /* Deep blue accent */
   --dark-bg: rgba(0, 31, 51, 0.8);
-  --glass-bg: rgba(0, 31, 51, 0.4);
-  --text-light: #cce7ff;
-  --text-muted: #a0cfff;
-  --shadow-blue: #00bfff88;
+  --glass-bg: rgba(23, 41, 53, 0.28); /* lighter, semi-transparent glass */
+  --glass-border: rgba(0, 0, 0, 0.18);
+  --text-light: #010407;
+  --text-muted: #000000;
+  --shadow-blue: #00121888;
   --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -15,11 +16,29 @@
 body {
   margin: 0;
   font-family: var(--font-family);
-  background: var(--dark-bg);
+  background: transparent; /* remove heavy dark overlay for Home */
   color: var(--text-light);
   overflow-x: hidden;
 }
 
+/* Home page root wrapper background (light, subtle gradient so cards float) */
+.home {
+  background: transparent; /* page background comes from global; only cards have backgrounds */
+  min-height: 100vh;
+}
+
+/* Reusable glass card look */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 24px rgba(0, 191, 255, 0.18);
+}
+.home p{
+  color: #000000;
+  font-size: 1.6rem;
+}
 /* Sticky Navigation Bar */
 .sticky-nav {
   position: sticky;
@@ -93,12 +112,11 @@ p {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #001f3399, #004d6699);
+  background: transparent; /* no background; only cards have backgrounds */
   padding: 5rem 2rem;
   border-radius: 20px;
   text-align: center;
   user-select: none;
-  box-shadow: 0 0 20px var(--shadow-blue);
   margin-top: 50px;
   padding-bottom: 190px;
 }
@@ -167,13 +185,14 @@ p {
 .card {
   background: var(--glass-bg);
   backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid var(--glass-border);
   border-radius: 20px;
   padding: 2rem 1.5rem;
   width: 300px;
   color: var(--text-light);
   box-shadow:
-    0 0 10px var(--shadow-blue),
-    0 0 25px var(--shadow-blue);
+    0 6px 24px rgba(0, 191, 255, 0.18);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -338,12 +357,13 @@ p {
 .testimonial-card {
   background: var(--glass-bg);
   backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   width: 320px;
   border-radius: 20px;
   padding: 2rem 1.5rem;
   color: var(--text-light);
-  box-shadow:
-    0 0 15px var(--shadow-blue);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 6px 24px rgba(0, 191, 255, 0.18);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -379,9 +399,9 @@ p {
 /* Testimonial text */
 .testimonial-text {
   font-style: italic;
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-  line-height: 1.4;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.35;
   color: var(--text-light);
 }
 
@@ -405,7 +425,7 @@ p {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 31, 51, 0.8);
+  background: rgba(0, 31, 51, 0.45);
   backdrop-filter: blur(20px);
   display: flex;
   justify-content: center;
@@ -416,11 +436,14 @@ p {
 
 .modal-content {
   background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
   border-radius: 20px;
   padding: 2rem 3rem;
   max-width: 500px;
   color: var(--text-light);
-  box-shadow: 0 0 30px var(--blue);
+  box-shadow: 0 8px 30px rgba(0, 191, 255, 0.25);
   text-align: center;
   user-select: none;
   animation: fadeInModal 0.4s ease forwards;
@@ -574,6 +597,7 @@ p {
   .cards {
     flex-direction: column;
     gap: 2.5rem;
+    align-items: center; /* center cards on small screens */
   }
   .nav-links {
     gap: 1rem;

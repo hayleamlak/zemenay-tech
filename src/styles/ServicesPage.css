@@ -2,10 +2,10 @@
   /* Dark theme colors */
   --bg-color: rgba(18, 18, 31, 0.75);
   --nav-bg-color: rgba(10, 10, 30, 0.9);
-  --text-color: #eee;
+  --text-color: #250606;
   --text-secondary: #cce7ff;
-  --highlight-color: #00bfff;
-  --highlight-glow: #00bfffcc;
+  --highlight-color: #071d24;
+  --highlight-glow: #030c0fcc;
   --card-bg: rgba(0, 0, 0, 0.55);
   --card-shadow: rgba(0, 191, 255, 0.15);
   --card-shadow-hover: rgba(0, 191, 255, 0.35);
@@ -22,10 +22,10 @@ body.light-mode {
   --nav-bg-color: #e0f0ffcc;
   --text-color: #001f33;
   --text-secondary: #004a75;
-  --highlight-color: #0077cc;
-  --highlight-glow: #3399ffcc;
+  --highlight-color: #05131c;
+  --highlight-glow: #070a0ccc;
   --card-bg: rgba(255, 255, 255, 0.85);
-  --card-shadow: rgba(0, 120, 255, 0.15);
+  --card-shadow: rgba(13, 22, 32, 0.15);
   --card-shadow-hover: rgba(0, 120, 255, 0.35);
   --button-bg: #3399ff88;
   --button-hover-bg: #3399ff;
@@ -38,20 +38,23 @@ body.light-mode {
 /* Base container with same style as About */
 .services-container {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: var(--bg-color);
+  background: transparent; /* remove page background like other pages */
   color: var(--text-color);
   min-height: 100vh;
   padding-bottom: 4rem;
   overflow-x: hidden;
-  padding-top: 4rem; /* space for reserved nav */
+  padding-top: 4rem; /* spa
+  ce for reserved nav */
+  color: #000000;
+  
 }
 
 /* Nav spacer */
 .nav-spacer {
   height: 60px; /* match your nav bar height */
-  background: var(--nav-bg-color);
-  backdrop-filter: saturate(180%) blur(8px);
-  box-shadow: 0 2px 8px var(--highlight-glow);
+  background: transparent; /* no extra bar background */
+  backdrop-filter: none;
+  box-shadow: none;
 }
 
 /* Hero Section */
@@ -64,7 +67,7 @@ body.light-mode {
 .services-hero h1 {
   font-size: 3rem;
   font-weight: 700;
-  color: var(--highlight-color);
+  
   text-shadow: 0 0 12px var(--highlight-glow);
   margin-bottom: 1rem;
 }
@@ -150,10 +153,11 @@ body.light-mode {
 .service-card {
   width: 100%;        /* full width of grid cell */
   max-width: 300px;   /* max width for large screens */
-  padding: 1.5rem 1.5rem;
+  padding: 1.25rem 1.25rem; /* slightly tighter padding */
   border-radius: 16px;
   background: var(--card-bg);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 8px 32px var(--card-shadow);
   color: var(--text-secondary);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -169,14 +173,15 @@ body.light-mode {
 }
 .service-card h3 {
   font-weight: 700;
-  margin: 1rem 0 0.75rem;
+  margin: 0.5rem 0; /* reduce gap around title */
   text-align: center;
 }
 .service-card p {
   font-size: 1rem;
   color: var(--text-secondary);
   line-height: 1.4;
-  margin-bottom: 1rem;
+  margin-top: 0.25rem; /* tighten spacing from title */
+  margin-bottom: 0.75rem;
   display: -webkit-box;
   -webkit-line-clamp: 3; /* max 3 lines */
   -webkit-box-orient: vertical;
@@ -187,7 +192,7 @@ body.light-mode {
 
 /* Icon container for service cards */
 .service-icon {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem; /* reduce gap between icon and title */
   width: 80px;
   height: 80px;
   display: flex;

@@ -14,7 +14,7 @@
 
 /* Container */
 .contact-container {
-  background: var(--bg-color);
+  background: transparent; /* remove page background */
   color: var(--text-color);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
@@ -31,8 +31,8 @@
 
 .contact-header h1 {
   font-size: 3rem;
-  color: var(--highlight-color);
-  text-shadow: 0 0 15px var(--highlight-glow);
+  color: #0f172a; /* dark color instead of blue */
+  text-shadow: none;
   margin-bottom: 0.5rem;
 }
 
@@ -47,21 +47,25 @@
 /* Main layout */
 .contact-main {
   display: flex;
-  gap: 3rem;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: space-between; /* spread cards to edges */
+  align-items: start;
+  gap: 4rem; /* wide gap between cards */
+  padding: 0 2rem; /* side padding */
 }
 
 /* Glass card style */
 .glass-card {
-  background: var(--card-bg);
+  background: rgba(0, 0, 0, 0.25); /* more transparent */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 8px 32px var(--card-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.15); /* add border */
   border-radius: 20px;
-  padding: 2.5rem 2rem;
-  color: var(--text-color);
+  padding: 2rem 1.5rem;
+  color: #ffffff; /* clean white text */
   transition: box-shadow 0.3s ease;
-  flex: 1;
-  max-width: 480px;
+  width: 100%;
+  max-width: none;
 }
 
 .glass-card:hover {
@@ -71,8 +75,14 @@
 /* Contact Form */
 .contact-form h2 {
   margin-bottom: 1.5rem;
-  color: var(--highlight-color);
-  text-shadow: 0 0 12px var(--highlight-glow);
+  color: #ffffff; /* white for Send us a message */
+  text-shadow: none;
+}
+
+/* Make form card narrower */
+.contact-form {
+  max-width: 400px;
+  flex-shrink: 0;
 }
 
 .form-row {
@@ -85,17 +95,17 @@
   margin-bottom: 0.4rem;
   font-weight: 600;
   font-size: 1rem;
-  color: var(--text-muted);
+  color: #e2e8f0; /* clean light text */
 }
 
 .form-row input,
 .form-row textarea {
   background: rgba(255 255 255 / 0.1);
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* add border */
   border-radius: 10px;
   padding: 0.7rem 1rem;
   font-size: 1rem;
-  color: var(--text-color);
+  color: #ffffff; /* clean white text */
   resize: vertical;
   box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -140,22 +150,46 @@
   text-shadow: 0 0 15px var(--highlight-glow);
 }
 
+/* Make info card wider to balance */
+.contact-info {
+  max-width: 450px;
+  flex-shrink: 0;
+}
+
+/* One-line info items on desktop */
+.contact-info > div {
+  margin-bottom: 1rem;
+}
+
+.contact-info > div h3 {
+  display: inline;
+  margin-right: 0.5rem;
+}
+
+.contact-info > div p {
+  display: inline;
+  margin: 0 0.25rem 0 0;
+}
+
+.contact-info > div p:not(:last-of-type)::after {
+  content: ",";
+}
+
 .contact-info h3 {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   font-weight: 700;
-  color: var(--text-muted);
+  color: #e2e8f0; /* clean light text */
 }
 
 .contact-info p {
-  margin: 0.3rem 0 0.8rem;
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.4;
-  color: var(--text-color);
+  color: #f1f5f9; /* clean white text */
 }
 
 /* Map container */
 .contact-map {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .contact-map h3 {
@@ -174,17 +208,25 @@
 }
 
 /* Responsive */
-
 @media (max-width: 900px) {
   .contact-main {
     flex-direction: column;
     align-items: center;
+    gap: 2rem;
+    padding: 0 1rem;
   }
-
-  .glass-card {
+  .contact-form,
+  .contact-info {
     max-width: 100%;
   }
-
+  /* Stack info items vertically and remove inline commas on mobile */
+  .contact-info > div h3,
+  .contact-info > div p {
+    display: block;
+  }
+  .contact-info > div p:not(:last-of-type)::after {
+    content: "";
+  }
   .contact-map iframe {
     height: 300px;
   }

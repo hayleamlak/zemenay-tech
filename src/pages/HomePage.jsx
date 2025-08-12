@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../styles/homepage.css";
-
+import homeFeatureImage from "../assets/image.png";
+import client2Logo from "../assets/client2-logo.webp";
+import client3Logo from "../assets/client3-logo.webp";
+import client4Logo from "../assets/client4-logo.webp";
+import client5Logo from "../assets/client5-logo.png";
+import Biniyam_Masresha from "../assets/Biniyam_Masresha.jpg";
+import Dagmawi_Bedilu from "../assets/Dagmawi_Bedilu.jpg";
+import Kirubel_Samuel from "../assets/Kirubel_Samuel.jpg";
 export default function HomePage() {
   const [modalContent, setModalContent] = useState(null);
 
@@ -60,7 +67,7 @@ export default function HomePage() {
           <div className="cards">
             <div className="card animate slide-in-up">
               <div className="image-frame">
-                <img src="/image.png" alt="Clean Interfaces" />
+                <img src={homeFeatureImage} alt="Clean Interfaces" />
               </div>
               <h3>Clean & Minimalist Interfaces</h3>
               <p>
@@ -81,7 +88,7 @@ export default function HomePage() {
 
             <div className="card animate slide-in-up delay-1">
               <div className="image-frame">
-                <img src="/image.png" alt="Scalable Code" />
+                <img src={homeFeatureImage} alt="Scalable Code" />
               </div>
               <h3>Scalable, High-Performance Code</h3>
               <p>
@@ -102,7 +109,7 @@ export default function HomePage() {
 
             <div className="card animate slide-in-up delay-2">
               <div className="image-frame">
-                <img src="/image.png" alt="Reliable Support" />
+                <img src={homeFeatureImage} alt="Reliable Support" />
               </div>
               <h3>Reliable Support & Maintenance</h3>
               <p>
@@ -124,40 +131,31 @@ export default function HomePage() {
         </section>
 
         {/* Clients Section */}
-        <section id="clients" className="clients animate fade-in-right">
+        <section id="clients" className="clients animate fade-in-right" style={{ textAlign: 'center' }}>
           <h2>Clients We've Had the Pleasure to Work With</h2>
-          <p className="clients-subtitle">
+          <p className="clients-subtitle" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
             We're proud to have collaborated with these industry leaders,
             helping them achieve their digital transformation goals.
           </p>
 
           <div className="clients-marquee" aria-label="Client logos">
             <div className="marquee-content">
-              {[...Array(24)].map((_, i) => {
-                const logos = [
-                  "/client5-logo.png",
-                  "/client4-logo.webp",
-                  "/client3-logo.webp",
-                  "/client2-logo.webp",
-                ];
-                const logo = logos[i % logos.length];
-                return (
-                  <img
-                    key={i}
-                    src={logo}
-                    alt={`Client logo ${i % logos.length + 1}`}
-                    loading="lazy"
-                  />
-                );
-              })}
+              {[client5Logo, client4Logo, client3Logo, client2Logo].map((logo, i) => (
+                <img
+                  key={i}
+                  src={logo}
+                  alt={`Client logo ${i + 1}`}
+                  loading="lazy"
+                />
+              ))}
             </div>
           </div>
         </section>
 
         {/* Testimonials Section */}
-        <section id="testimonials" className="testimonials animate fade-in-up">
+        <section id="testimonials" className="testimonials animate fade-in-up" style={{ textAlign: 'center' }}>
           <h2>What Our Clients Say</h2>
-          <p className="testimonial-subtitle">
+          <p className="testimonial-subtitle" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
             Don't just take our word for it. Here's what industry professionals
             have to say about our services and solutions.
           </p>
@@ -166,22 +164,25 @@ export default function HomePage() {
               {
                 name: "Biniyam Masresha",
                 role: "Co-founder at Hiyaw Animations",
+                photo: Biniyam_Masresha,
                 text:
                   "Working with this team has been an absolute game-changer for our business. Their innovative solutions have streamlined our processes and boosted our productivity tenfold!",
               },
               {
                 name: "Dagmawi Bedilu",
                 role: "CSO at Efuye Gela",
+                photo: Dagmawi_Bedilu,
                 text:
                   "I can't recommend their services enough. The level of expertise and dedication they bring to each project is unparalleled. Our ROI has skyrocketed since partnering with them.",
               },
               {
                 name: "Kirubel Samuel",
                 role: "Co-founder at Chewataawaqi",
+                photo: Kirubel_Samuel,
                 text:
                   "The customer support is top-notch. They're always available to answer questions and provide guidance. It's refreshing to work with a company that truly cares about its clients' success.",
               },
-            ].map(({ name, role, text }, i) => (
+            ].map(({ name, role, text, photo }, i) => (
               <div
                 key={i}
                 className={`testimonial-card animate ${
@@ -189,7 +190,7 @@ export default function HomePage() {
                 } delay-${i}`}
               >
                 <div className="image-frame profile-frame">
-                  <img src="/image.png" alt={name} />
+                  <img src={photo} alt={name} />
                 </div>
                 <p className="testimonial-text">"{text}"</p>
                 <p className="client-name">{name}</p>

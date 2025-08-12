@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../styles/aboutpage.css";
+import communityImg from "../assets/community.webp";
+import freadamImg from "../assets/Biniyam_Masresha.jpg";
+import tehetnaImg from "../assets/Dagmawi_Bedilu.jpg";
+import michaelImg from "../assets/Kirubel_Samuel.jpg";
 
 export default function AboutPage() {
   const [modalContent, setModalContent] = useState(null);
@@ -124,7 +128,7 @@ export default function AboutPage() {
             </button>
           </div>
           <div className="mission-image blob-frame">
-            <img src="/image.png" alt="Mission" />
+            <img src={communityImg} alt="Mission" />
           </div>
         </section>
 
@@ -180,29 +184,32 @@ export default function AboutPage() {
         >
           <h2>Meet Our Team</h2>
           <div className="team-grid">
-            {[
+            {[ 
               {
                 name: "Freadam Abebe",
                 role: "Co-Founder & Product Manager",
                 desc: "5+ years in tech leadership",
                 tags: ["Tech Leader", "Product Visionary"],
+                image: freadamImg,
               },
               {
                 name: "Tehetna Askal",
                 role: "Co-Founder & Project Manager",
                 desc: "Expert in agile methodologies",
                 tags: ["Agile Expert", "Project Strategist"],
+                image: tehetnaImg,
               },
               {
                 name: "Michael Engida",
                 role: "Co-Founder & Business Development",
                 desc: "Driving business growth",
                 tags: ["Business Strategist", "Growth Hacker"],
+                image: michaelImg,
               },
-            ].map(({ name, role, desc, tags }) => (
+            ].map(({ name, role, desc, tags, image }) => (
               <div key={name} className="team-card glass-card">
                 <div className="blob-frame team-img-frame">
-                  <img src="/image.png" alt={name} />
+                  <img src={image} alt={name} />
                 </div>
                 <h3>{name}</h3>
                 <p className="role">{role}</p>

@@ -7,6 +7,8 @@ import {
 } from "react-icons/fa";
 import "../styles/servicespage.css";
 
+import Gallery from '../components/Gallery';
+
 export default function ServicesPage() {
   const [modalContent, setModalContent] = useState(null);
 
@@ -137,7 +139,9 @@ export default function ServicesPage() {
                   Learn More
                 </button>
               </div>
+
             ))}
+             <Gallery />
           </div>
         </section>
       </div>
