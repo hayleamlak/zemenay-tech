@@ -29,7 +29,7 @@
 .sticky-nav {
   position: sticky;
   top: 0;
-  background: rgba(10, 10, 30, 0.9);
+  background: transparent;
   z-index: 999;
   backdrop-filter: saturate(180%) blur(8px);
   box-shadow: 0 2px 8px rgba(0, 191, 255, 0.25);
@@ -89,6 +89,7 @@
   max-width: 900px;
   margin: 0 auto 3rem;
   text-align: center;
+  padding-bottom: 200px;
 }
 .about-hero h1 {
   font-size: 3rem;
@@ -143,6 +144,7 @@
 .mission-content {
   flex: 1 1 50%;
   color: #0f172a;
+  padding: 100px;
 }
 .mission-content h2 {
   font-weight: 700;

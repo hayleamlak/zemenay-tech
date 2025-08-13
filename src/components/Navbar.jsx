@@ -44,6 +44,7 @@ export default function Navbar({ onNavigate, currentPage }) {
   const handleNavigate = (path) => {
     onNavigate(path);
     setMenuOpen(false);
+    // Smooth scroll to top will be handled by App.jsx useEffect
   };
 
   const toggleTheme = () => {

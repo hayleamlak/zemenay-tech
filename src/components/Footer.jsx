@@ -15,6 +15,11 @@ export default function Footer({ onNavigate, currentPage }) {
     { label: "Terms of Service", path: "/terms" }, // update route as needed
   ];
 
+  const handleNavigation = (path) => {
+    onNavigate(path);
+    // Smooth scroll to top will be handled by App.jsx useEffect
+  };
+
   return (
     <footer className="footer-container">
       {/* Logo Column */}
@@ -30,7 +35,7 @@ export default function Footer({ onNavigate, currentPage }) {
             <button
               key={label}
               className={currentPage === label ? "active" : ""}
-              onClick={() => onNavigate(path)}
+              onClick={() => handleNavigation(path)}
             >
               {label}
             </button>
@@ -46,7 +51,7 @@ export default function Footer({ onNavigate, currentPage }) {
             <button
               key={label}
               className={currentPage === label ? "active" : ""}
-              onClick={() => onNavigate(path)}
+              onClick={() => handleNavigation(path)}
             >
               {label}
             </button>

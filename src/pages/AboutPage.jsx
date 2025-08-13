@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../styles/aboutpage.css";
 import communityImg from "../assets/community.webp";
-import freadamImg from "../assets/Biniyam_Masresha.jpg";
-import tehetnaImg from "../assets/Dagmawi_Bedilu.jpg";
-import michaelImg from "../assets/Kirubel_Samuel.jpg";
+import freadamImg from "../assets/Freadam_Abebe .jpg";
+import tehetnaImg from "../assets/Tihitina_Askal.jpg";
+import michaelImg from "../assets/Michael_Engida.jpg";
 
 export default function AboutPage() {
   const [modalContent, setModalContent] = useState(null);
@@ -26,7 +26,12 @@ export default function AboutPage() {
 
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (el) {
+      el.scrollIntoView({ 
+        behavior: "smooth",
+        block: "start"
+      });
+    }
   };
 
   const openModal = (title, content) => {

@@ -3,7 +3,7 @@ import { useThree, useFrame } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
 import { Vector3 } from 'three';
 
-export default function CameraController({ target, scrollProgress = 0 }) {
+export default function CameraController({ target, scrollProgress = 0, isTransitioning = false }) {
   const { camera } = useThree();
   const targetRef = useRef(new Vector3(...target));
   const basePosition = new Vector3(...target);
@@ -18,7 +18,18 @@ export default function CameraController({ target, scrollProgress = 0 }) {
   useFrame(() => {
     // Calculate scroll-adjusted target position
     const scrollAdjustedPosition = basePosition.clone().add(scrollOffset.clone().multiplyScalar(scrollProgress));
-    camera.position.lerp(scrollAdjustedPosition, 0.05);
+    
+    // Use different lerp speeds based on transition state
+    let lerpSpeed;
+    if (isTransitioning) {
+      // Smooth, slower transition for welcome screen
+      lerpSpeed = 0.02; // Slower for smooth welcome transition
+    } else {
+      // Normal speed for regular navigation
+      lerpSpeed = 0.05;
+    }
+    
+    camera.position.lerp(scrollAdjustedPosition, lerpSpeed);
     camera.lookAt(0, 0, 0);
   });
 

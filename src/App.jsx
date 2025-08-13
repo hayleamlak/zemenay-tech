@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import ModelViewer from './components/ModelViewer';
 import CameraController from './components/CameraController';
 import ScrollController from './components/ScrollController';
+import WelcomeScreen from './components/WelcomeScreen';
 
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -19,11 +20,12 @@ import './styles/Footer.css';
 import './styles/main.css';
 import './styles/pages.css';
 import './styles/navbar.css';
+import './styles/WelcomeScreen.css';
 
 // Map routes to camera targets and labels
 const pageData = {
   '/': { target: [1000, 70, 120], label: 'Home' },
-  '/about': { target: [500, -5, -100], label: 'About' },
+  '/about': { target: [1000, 70, 120], label: 'About' },
   '/services': { target: [600, 150, -200], label: 'Services' },
   '/pricing': { target: [200, 300, -400], label: 'Pricing' },
   '/contact': { target: [0, 800, -100], label: 'Contact' },
@@ -34,15 +36,28 @@ function AppContent() {
   const navigate = useNavigate();
 
   // Update camera target & currentPage based on URL path
-  const [cameraTarget, setCameraTarget] = useState(pageData[location.pathname]?.target || pageData['/'].target);
+  const [cameraTarget, setCameraTarget] = useState([3000, 70, 120]); // Start faruu away
   const [currentPage, setCurrentPage] = useState(pageData[location.pathname]?.label || 'Home');
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isModelLoaded, setIsModelLoaded] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     const data = pageData[location.pathname] || pageData['/'];
-    setCameraTarget(data.target);
     setCurrentPage(data.label);
-  }, [location]);
+    
+    // Only update camera target if not in welcome transition
+    if (!showWelcome && !isTransitioning) {
+      setCameraTarget(data.target);
+    }
+    
+    // Smooth scroll to top when route changes
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, [location, showWelcome, isTransitioning]);
 
   // Handler to navigate and update URL & camera target
   const handleNavigate = (path) => {
@@ -50,8 +65,37 @@ function AppContent() {
     // cameraTarget and currentPage update will happen via useEffect on location change
   };
 
+  // Handle model loading completion
+  const handleModelLoaded = () => {
+    setIsModelLoaded(true);
+  };
+
+  // Handle welcome screen completion and start camera transition
+  const handleWelcomeComplete = () => {
+    setShowWelcome(false);
+    setIsTransitioning(true);
+    
+    // Start smooth camera transition to home position
+    setTimeout(() => {
+      setCameraTarget([1000, 70, 120]); // Home page position
+      
+      // Mark transition as complete after animation
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 2000); // Match camera transition duration
+    }, 200); // Small delay to ensure welcome screen is hidden
+  };
+
   return (
     <>
+      {/* Welcome Screen */}
+      {showWelcome && (
+        <WelcomeScreen 
+          isModelLoaded={isModelLoaded} 
+          onWelcomeComplete={handleWelcomeComplete}
+        />
+      )}
+
       <Navbar onNavigate={handleNavigate} currentPage={currentPage} />
 
       <Canvas
@@ -67,10 +111,18 @@ function AppContent() {
       >
         <ambientLight intensity={0.5} />
         <directionalLight position={[300, 400, 200]} intensity={1} />
-        <ModelViewer scrollProgress={scrollProgress} scale={1} />
+        <ModelViewer 
+          scrollProgress={scrollProgress} 
+          scale={1} 
+          onModelLoaded={handleModelLoaded}
+        />
         <Environment background files="/venice_sunset_2k.hdr" />
         <OrbitControls target={[0, 0, 0]} />
-        <CameraController target={cameraTarget} scrollProgress={scrollProgress} />
+        <CameraController 
+          target={cameraTarget} 
+          scrollProgress={scrollProgress}
+          isTransitioning={isTransitioning}
+        />
       </Canvas>
 
       <ScrollController onScrollProgress={setScrollProgress}>

@@ -43,7 +43,8 @@ body.light-mode {
   min-height: 100vh;
   padding-bottom: 4rem;
   overflow-x: hidden;
-  padding-top: 4rem; /* spa
+  padding: 4rem 0rem; /* spa
+  
   ce for reserved nav */
   color: #000000;
   
