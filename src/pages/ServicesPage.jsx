@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import "../styles/ServicesPage.css";
 
+
 import Gallery from '../components/Gallery';
 
 export default function ServicesPage() {

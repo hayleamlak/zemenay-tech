@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../styles/PricingPage.css";
 
 
+
 const plans = [
   {
     name: "Community",
