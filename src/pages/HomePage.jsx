@@ -171,7 +171,12 @@ export default function HomePage() {
 
             <div className="clients-marquee" aria-label="Client logos">
               <div className="marquee-content">
-                {[client5Logo, client4Logo, client3Logo, client2Logo, client5Logo, client4Logo, client3Logo, client2Logo].map((logo, i) => (
+                {[
+                  client5Logo, client4Logo, client3Logo, client2Logo, 
+                  client5Logo, client4Logo, client3Logo, client2Logo,
+                  client5Logo, client4Logo, client3Logo, client2Logo,
+                  client5Logo, client4Logo, client3Logo, client2Logo
+                ].map((logo, i) => (
                   <img
                     key={i}
                     src={logo}

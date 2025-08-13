@@ -25,7 +25,7 @@ import './styles/WelcomeScreen.css';
 // Map routes to camera targets and labels
 const pageData = {
   '/': { target: [1000, 70, 120], label: 'Home' },
-  '/about': { target: [1000, 70, 120], label: 'About' },
+  '/about': { target: [500, 70, 120], label: 'About' },
   '/services': { target: [600, 150, -200], label: 'Services' },
   '/pricing': { target: [200, 300, -400], label: 'Pricing' },
   '/contact': { target: [0, 800, -100], label: 'Contact' },

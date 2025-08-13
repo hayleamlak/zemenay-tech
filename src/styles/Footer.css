@@ -4,7 +4,7 @@
   --footer-text-muted: #4b5563;
   --footer-highlight: #00bfff;
   --footer-highlight-glow: #00bfffcc;
-  --footer-shadow: rgba(0, 191, 255, 0.18);
+  --footer-shadow: rgba(114, 165, 181, 0.18);
   --footer-link-hover: #111827;
 }
 
@@ -40,6 +40,14 @@
   padding: 0 1rem 0 0;
   filter: drop-shadow(0 0 5px var(--footer-highlight-glow));
   user-select: none;
+  /* Ensure proper display */
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.footer-logo-column img:hover {
+  filter: drop-shadow(0 0 8px var(--footer-highlight-glow));
+  transform: scale(1.02);
 }
 
 /* Other columns */

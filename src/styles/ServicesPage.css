@@ -313,3 +313,212 @@ body.light-mode {
     width: 100%;
   }
 }
+
+/* Gallery Section - 3D Gallery and Description */
+.gallery-section {
+  max-width: 1400px;
+  margin: 0 auto 4rem;
+  padding: 2rem 1rem;
+  text-align: center;
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px var(--card-shadow);
+  border: 1px solid rgba(0, 191, 255, 0.1);
+}
+
+.gallery-section h2 {
+  color: var(--highlight-color);
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-shadow: 0 0 12px var(--highlight-glow);
+}
+
+.gallery-container {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.gallery-3d {
+  flex: 1;
+  max-width: 600px;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-description {
+  flex: 1;
+  max-width: 500px;
+  min-width: 0;
+}
+
+.description-content {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 8px 32px var(--card-shadow);
+  border: 1px solid rgba(0, 191, 255, 0.1);
+  text-align: left;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.description-content h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--highlight-color);
+  text-shadow: 0 0 8px var(--highlight-glow);
+}
+
+.description-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: var(--text-secondary);
+}
+
+.description-features {
+  margin-bottom: 2rem;
+}
+
+.feature-item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 191, 255, 0.05);
+  border-radius: 12px;
+  border-left: 3px solid var(--button-bg);
+}
+
+.feature-item h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--highlight-color);
+}
+
+.feature-item p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.description-content .btn-primary {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* 3D Gallery Button Styling */
+.gallery-3d button {
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  padding: 15px 20px !important;
+  border-radius: 8px !important;
+  border: none !important;
+  cursor: pointer !important;
+  background-color: var(--button-bg) !important;
+  color: var(--button-text-color) !important;
+  box-shadow: 0 4px 15px var(--card-shadow) !important;
+  transition: all 0.3s ease !important;
+  user-select: none !important;
+  height: 60px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 60px !important;
+}
+
+.gallery-3d button:hover {
+  background-color: var(--button-hover-bg) !important;
+  color: white !important;
+  box-shadow: 0 8px 25px var(--card-shadow-hover) !important;
+  transform: scale(1.05) !important;
+}
+
+/* Responsive Design for Gallery Section */
+@media (max-width: 1200px) {
+  .gallery-container {
+    gap: 2rem;
+  }
+  
+  .description-content {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .gallery-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .gallery-3d,
+  .gallery-description {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .description-content {
+    position: static;
+    text-align: center;
+  }
+  
+  .feature-item {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-section {
+    padding: 1.5rem 1rem;
+  }
+  
+  .gallery-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .description-content {
+    padding: 1.5rem 1rem;
+  }
+  
+  .description-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .description-content p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-section {
+    padding: 1rem 0.5rem;
+  }
+  
+  .description-content {
+    padding: 1rem;
+  }
+  
+  .feature-item {
+    padding: 0.75rem;
+  }
+  
+  .feature-item h4 {
+    font-size: 1.1rem;
+  }
+  
+  .feature-item p {
+    font-size: 0.9rem;
+  }
+}

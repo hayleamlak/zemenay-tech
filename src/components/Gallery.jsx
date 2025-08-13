@@ -138,7 +138,7 @@ export default function Gallery() {
                   left: '50%',
                   top: 20,
                   marginLeft: -140,
-                  transform: `translateX(${x}px) translateZ(${zPos}px) rotateY(${rotationY}deg) scale(${scale})`,
+                  transform: `translateX(${x}px) translateZ(${zPos}px) rotateX(${rotationY}deg) scale(${scale})`,
                   transition: 'all 0.7s cubic-bezier(0.4, 0, 0.2, 1)',
                   borderRadius: 10,
                   boxShadow:

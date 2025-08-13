@@ -24,7 +24,7 @@ export default function Footer({ onNavigate, currentPage }) {
     <footer className="footer-container">
       {/* Logo Column */}
       <div className="footer-column footer-logo-column">
-        <img src="/Zemenay Main.png" alt="Zemenay Logo" />
+        <img src="/src/assets/Zemenay Main.png" alt="Zemenay Logo" />
       </div>
 
       {/* Quick Links */}

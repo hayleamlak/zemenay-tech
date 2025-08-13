@@ -360,6 +360,9 @@ p {
   width: 100%;
   padding: 1rem 0;
   user-select: none;
+  /* Ensure smooth scrolling */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .clients-marquee:hover .marquee-content {
@@ -369,20 +372,34 @@ p {
 .marquee-content {
   display: flex;
   gap: 3rem;
-  animation: marquee 20s linear infinite;
+  animation: marquee 30s linear infinite;
   width: max-content;
+  /* Ensure smooth infinite loop */
+  will-change: transform;
+  /* Prevent any gaps in the loop */
+  transform: translateZ(0);
+  /* Ensure no flickering */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .marquee-content img {
   height: 60px;
   width: auto;
-  filter: grayscale(90%);
-  transition: filter 0.3s ease;
+  filter: grayscale(90%) brightness(0.8);
+  transition: all 0.3s ease;
   cursor: default;
+  /* Prevent image distortion */
+  object-fit: contain;
+  /* Ensure smooth rendering */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .marquee-content img:hover {
-  filter: grayscale(0);
+  filter: grayscale(0) brightness(1.2);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
 }
 
 /* Marquee Animation - Infinite Loop */
@@ -391,7 +408,7 @@ p {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }
 
@@ -444,33 +461,53 @@ p {
 }
 
 .testimonial-card {
-  background: var(--glass-bg);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(0, 191, 255, 0.2);
   border-radius: 20px;
   padding: 2rem 1.5rem;
-  box-shadow: 0 6px 24px rgba(0, 191, 255, 0.18);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 191, 255, 0.15);
+  transition: all 0.3s ease;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  overflow: visible;
+}
+
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 191, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.testimonial-card:hover::before {
+  left: 100%;
 }
 
 .testimonial-card:hover {
-  box-shadow: 0 0 30px var(--blue);
-  transform: translateY(-5px);
+  box-shadow: 0 0 40px rgba(0, 191, 255, 0.4);
+  transform: translateY(-8px);
+  border-color: rgba(0, 191, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .testimonial-photo {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 0 10px var(--shadow-blue);
-  filter: drop-shadow(0 0 7px var(--blue));
-  margin-bottom: 1rem;
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
+  filter: drop-shadow(0 0 10px rgba(0, 191, 255, 0.6));
+  margin-bottom: 0.75rem;
+  border: 2px solid rgba(0, 191, 255, 0.3);
 }
 
 .testimonial-photo img {
@@ -480,23 +517,24 @@ p {
 }
 
 .testimonial-header {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   text-align: center;
 }
 
 .testimonial-name {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--text-light);
   margin-bottom: 0.25rem;
-  text-shadow: 0 0 5px var(--blue);
+  text-shadow: 0 0 8px rgba(0, 191, 255, 0.5);
 }
 
 .testimonial-role {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
   font-weight: 500;
   margin: 0;
+  text-shadow: 0 0 5px rgba(0, 191, 255, 0.3);
 }
 
 .testimonial-text {
@@ -507,6 +545,8 @@ p {
   flex-grow: 1;
   display: flex;
   align-items: center;
+  text-align: center;
+  text-shadow: 0 0 8px rgba(0, 191, 255, 0.3);
 }
 
 /* Modal Styles */
@@ -784,4 +824,29 @@ p {
   .testimonials-grid {
     gap: 1.5rem;
   }
+}
+
+/* Add shine effect to testimonial cards */
+.testimonial-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(0, 191, 255, 0.05) 25%,
+    rgba(0, 191, 255, 0.1) 50%,
+    rgba(0, 191, 255, 0.05) 75%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.testimonial-card:hover::after {
+  opacity: 1;
 }

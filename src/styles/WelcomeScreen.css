@@ -48,6 +48,9 @@
   width: auto;
   filter: drop-shadow(0 0 20px var(--blue));
   transition: all 0.3s ease;
+  /* Ensure proper display */
+  object-fit: contain;
+  max-width: 100%;
 }
 
 .welcome-title {

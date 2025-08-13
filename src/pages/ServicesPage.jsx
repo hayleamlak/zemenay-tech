@@ -113,7 +113,7 @@ export default function ServicesPage() {
           </p>
           <button
             className="btn-primary"
-            onClick={() => window.scrollTo({ top: 300, behavior: "smooth" })}
+            onClick={() => document.getElementById('services-cards').scrollIntoView({ behavior: 'smooth', block: 'start' })}
           >
             Explore Our Services
           </button>
@@ -126,7 +126,7 @@ export default function ServicesPage() {
           </p>
         </section>
 
-        <section className="services-cards animate-on-scroll fade-in-up">
+        <section id="services-cards" className="services-cards animate-on-scroll fade-in-up">
           <h2>Our Services</h2>
           <div className="cards-grid">
             {services.map((service, i) => (
@@ -139,9 +139,44 @@ export default function ServicesPage() {
                   Learn More
                 </button>
               </div>
-
             ))}
-             <Gallery />
+          </div>
+        </section>
+
+        {/* 3D Gallery and Description Section */}
+        <section className="gallery-section animate-on-scroll fade-in-up">
+          <h2>Our Work Showcase</h2>
+          <div className="gallery-container">
+            <div className="gallery-3d">
+              <Gallery />
+            </div>
+            <div className="gallery-description">
+              <div className="description-content">
+                <h3>Innovative Solutions, Real Results</h3>
+                <p>
+                  Explore our portfolio of cutting-edge projects that demonstrate our expertise in creating scalable, 
+                  user-friendly applications. From educational platforms to gaming services and e-commerce solutions, 
+                  we deliver technology that drives business growth.
+                </p>
+                <div className="description-features">
+                  <div className="feature-item">
+                    <h4>Education & Training</h4>
+                    <p>Free developer training programs empowering the next generation of tech professionals.</p>
+                  </div>
+                  <div className="feature-item">
+                    <h4>Gaming Services</h4>
+                    <p>Next.js powered platform connecting companies with professional gaming entertainment.</p>
+                  </div>
+                  <div className="feature-item">
+                    <h4>E-commerce Solutions</h4>
+                    <p>WordPress and Elementor Pro websites with custom design and seamless user experience.</p>
+                  </div>
+                </div>
+                <button className="btn-primary" onClick={() => document.getElementById('services-cards').scrollIntoView({ behavior: 'smooth', block: 'start' })}>
+                  Get Started Today
+                </button>
+              </div>
+            </div>
           </div>
         </section>
       </div>

@@ -26,7 +26,7 @@ export default function WelcomeScreen({ isModelLoaded, onWelcomeComplete }) {
     <div className={`welcome-screen ${isFadingOut ? 'fade-out' : 'fade-in'}`}>
       <div className="welcome-content">
         <div className="welcome-logo">
-          <img src="/Zemenay Main.png" alt="Zemenay Logo" />
+          <img src="/src/assets/Zemenay Main.png" alt="Zemenay Logo" />
         </div>
         <h1 className="welcome-title">Welcome to Zemenay Community</h1>
         <p className="welcome-subtitle">
