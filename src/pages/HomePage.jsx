@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import "../styles/HomePage.css";
 
+
 import { 
   BsBrush, 
   BsGraphUp, 
