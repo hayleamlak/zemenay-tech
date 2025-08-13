@@ -5,7 +5,7 @@ import {
   FaSearch,      // SEO Management icon
   FaTools        // Website Maintenance icon
 } from "react-icons/fa";
-import "../styles/servicespage.css";
+import "../styles/ServicesPage.css";
 
 import Gallery from '../components/Gallery';
 
