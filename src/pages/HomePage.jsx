@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../styles/homepage.css";
+import "../styles/HomePage.css";
 import { 
   BsBrush, 
   BsGraphUp, 
