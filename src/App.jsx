@@ -17,7 +17,7 @@ import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
 
 import './styles/Footer.css';
-import './styles/main.css';
+
 import './styles/pages.css';
 import './styles/navbar.css';
 import './styles/WelcomeScreen.css';
@@ -26,7 +26,7 @@ import './styles/WelcomeScreen.css';
 const pageData = {
   '/': { target: [1000, 70, 120], label: 'Home' },
   '/about': { target: [500, 70, 120], label: 'About' },
-  '/services': { target: [600, 150, -200], label: 'Services' },
+  '/services': { target: [700, 150, -260], label: 'Services' },
   '/pricing': { target: [200, 300, -400], label: 'Pricing' },
   '/contact': { target: [0, 800, -100], label: 'Contact' },
 };

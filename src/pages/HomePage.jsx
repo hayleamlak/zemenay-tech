@@ -46,21 +46,22 @@ export default function HomePage() {
     <>
       <div className="home">
         {/* Hero Section */}
-        <section id="hero" className="hero animate fade-in-down">
-          <div className="hero-content">
-            <h1>Revolutionize Your Digital Experience</h1>
-            <p>
-              At Zemenay, we build clean, scalable, and elegant digital
-              experiences for forward-thinking businesses.
-            </p>
-            <button
-              className="btn-primary"
-              onClick={() => alert("Let's build together!")}
-            >
-              Let's Build Together
-            </button>
-          </div>
-        </section>
+ <section id="hero" className="hero animate fade-in-down">
+  <div className="hero-content">
+    <h1>Revolutionize Your Digital Experience</h1>
+    <p>
+      At Zemenay, we build clean, scalable, and elegant digital
+      experiences for forward-thinking businesses.
+    </p>
+    <button
+      className="btn-primary"
+      onClick={() => onNavigate("/contact")} 
+    >
+      Let's Build Together
+    </button>
+  </div>
+</section>
+
 
         {/* Why Us Section */}
         <section id="why-us" className="why-us animate fade-in-left">

@@ -129,3 +129,11 @@
     min-width: auto;
   }
 }
+/* Copyright text */
+.footer-container .footer-copyright {
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: var(--footer-text-muted);
+}

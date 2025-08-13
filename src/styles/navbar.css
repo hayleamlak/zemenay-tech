@@ -1,26 +1,7 @@
 :root {
-  /* Light mode colors */
-  --bg-color-light: rgba(255, 255, 255, 0.08); /* more transparent */
-  --highlight-color-light: #00bfff;
-  --text-color-light: #ffffff;
-
-  /* Dark mode colors */
-  --bg-color-dark: rgba(0, 0, 0, 0.12); /* more transparent */
-  --highlight-color-dark: #00ffff;
-  --text-color-dark: #cce7ff;
-}
-
-/* Default theme is light */
-[data-theme='light'] {
-  --bg-color: var(--bg-color-light);
-  --highlight-color: var(--highlight-color-light);
-  --text-color: var(--text-color-light);
-}
-
-[data-theme='dark'] {
-  --bg-color: var(--bg-color-dark);
-  --highlight-color: var(--highlight-color-dark);
-  --text-color: var(--text-color-dark);
+  --bg-color: rgba(255, 255, 255, 0.08); /* transparent background */
+  --highlight-color: #00bfff;
+  --text-color: #ffffff;
 }
 
 /* Navbar base */
@@ -62,37 +43,6 @@
   outline-offset: 4px;
 }
 
-/* Dark/Light mode toggle button */
-.theme-toggle {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  color: var(--highlight-color);
-  padding: 0.3rem;
-  margin-left: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: color 0.3s ease, background-color 0.3s ease;
-  width: 38px;
-  height: 38px;
-  user-select: none;
-}
-
-.theme-toggle:hover,
-.theme-toggle:focus {
-  background-color: rgba(0, 191, 255, 0.15);
-  color: var(--highlight-color);
-  outline: none;
-}
-
-.theme-toggle svg {
-  width: 24px;
-  height: 24px;
-  pointer-events: none;
-}
-
 /* Hamburger menu button */
 .hamburger {
   display: none;
@@ -105,7 +55,7 @@
   cursor: pointer;
   padding: 0;
   z-index: 1000;
-  margin-left: 1rem; /* separate from toggle button */
+  margin-left: 1rem;
 }
 
 .hamburger:focus {
@@ -121,15 +71,12 @@
   transition: all 0.3s ease;
 }
 
-/* Animate hamburger into X when open */
 .hamburger.open .hamburger-bar:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
-
 .hamburger.open .hamburger-bar:nth-child(2) {
   opacity: 0;
 }
-
 .hamburger.open .hamburger-bar:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
@@ -160,7 +107,7 @@
   border-radius: 1px;
 }
 
-/* Nav button smaller for desktop */
+/* Nav button */
 .nav-button {
   background: rgba(0, 0, 0, 0.6);
   color: var(--text-color);
@@ -191,12 +138,6 @@
   color: var(--text-color);
 }
 
-.pendulum-container.active .nav-button {
-  background: rgba(0, 191, 255, 0.3);
-  border-color: var(--highlight-color);
-  box-shadow: 0 10px 30px rgba(0, 191, 255, 0.6);
-}
-
 /* Responsive for smaller screens */
 @media (max-width: 768px) {
   .hamburger {
@@ -207,8 +148,7 @@
     position: fixed;
     top: 60px;
     right: 0;
-    background: transparent; /* fully transparent sidebar */
-    backdrop-filter: none;
+    background: transparent;
     flex-direction: column;
     width: 240px;
     height: calc(100vh - 60px);
@@ -236,13 +176,5 @@
     min-width: auto;
     max-width: none;
     border-radius: 20px;
-  }
-
-  /* place theme toggle inside the sidebar on small devices */
-  .theme-toggle {
-    position: fixed;
-    top: 70px;
-    right: 16px;
-    z-index: 999;
   }
 }
