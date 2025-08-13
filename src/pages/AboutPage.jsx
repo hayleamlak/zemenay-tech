@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/AboutPage.css";
 
+
 import communityImg from "../assets/community.webp";
 import freadamImg from "../assets/Freadam_Abebe .jpg";
 import tehetnaImg from "../assets/Tihitina_Askal.jpg";
