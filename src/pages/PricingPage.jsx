@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/pricingpage.css";
+import "../styles/pricingPage.css";
 
 const plans = [
   {
