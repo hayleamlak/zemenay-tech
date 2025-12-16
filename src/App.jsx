@@ -16,6 +16,7 @@ import PricingPage from './pages/PricingPage';
 import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
 
+
 import './styles/Footer.css';
 
 import './styles/pages.css';
