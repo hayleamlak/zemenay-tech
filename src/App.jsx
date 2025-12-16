@@ -9,7 +9,6 @@ import CameraController from './components/CameraController';
 import ScrollController from './components/ScrollController';
 import WelcomeScreen from './components/WelcomeScreen';
 
-
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
