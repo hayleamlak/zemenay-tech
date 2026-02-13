@@ -7,6 +7,7 @@ A modern, responsive website built with React, featuring 3D graphics, smooth ani
 ## ✨ Features
 
 - **🎨 Modern Design**: Glass morphism effects with backdrop blur and transparent backgrounds
+
 - **🌐 3D Graphics**: Interactive 3D model viewer using React Three Fiber
 - **📱 Fully Responsive**: Optimized for desktop, tablet, and mobile devices
 - **⚡ Smooth Animations**: CSS animations and scroll-triggered effects
